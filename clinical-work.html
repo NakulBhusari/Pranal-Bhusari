@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#E2F0F0">
+  <meta name="description" content="Selected clinical orthodontic cases from Dr. Pranal Bhusari's practice, including clear aligners, braces and other treatments.">
+  <title>Clinical Work · Dr. Pranal Bhusari</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="clinical-work.css">
+</head>
+<body>
+  <div class="page-frame">
+    <nav class="site-nav" aria-label="Main navigation">
+      <a class="brand" href="index.html#home" aria-label="Dr. Pranal Bhusari home">Dr. Pranal Bhusari</a>
+      <div class="nav-links" id="nav-links">
+        <a href="index.html#home">Home</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#services">Services</a>
+        <a href="index.html#work">Work</a>
+        <a href="clinical-work.html" aria-current="page">Clinical Work</a>
+      </div>
+      <div class="nav-actions">
+        <a class="nav-contact" href="index.html#connect" aria-label="Contact Dr. Pranal">Contact Me ↗</a>
+        <button class="nav-toggle" type="button" aria-label="Open navigation menu" aria-controls="nav-links" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </nav>
+
+    <main>
+      <header class="page-heading wrap reveal">
+        <p class="eyebrow">Clinical Work</p>
+        <h1 class="section-title">A smile, thoughtfully aligned.</h1>
+        <p class="section-intro">Selected cases from my orthodontic practice. Every treatment journey is individual.</p>
+      </header>
+
+      <section class="gallery-section wrap" aria-label="Clinical case gallery">
+        <div class="filter-heading reveal">
+          <div class="filter-list" role="group" aria-label="Filter cases by treatment">
+            <button class="filter-chip is-active" type="button" data-filter="all" aria-pressed="true">All</button>
+            <button class="filter-chip" type="button" data-filter="Clear Aligners" aria-pressed="false">Clear Aligners</button>
+            <button class="filter-chip" type="button" data-filter="Metal Braces" aria-pressed="false">Metal Braces</button>
+            <button class="filter-chip" type="button" data-filter="Ceramic Braces" aria-pressed="false">Ceramic Braces</button>
+            <button class="filter-chip" type="button" data-filter="Damon Self-Ligating" aria-pressed="false">Damon Self-Ligating</button>
+            <button class="filter-chip" type="button" data-filter="Impacted Teeth" aria-pressed="false">Impacted Teeth</button>
+            <button class="filter-chip" type="button" data-filter="Functional Appliances" aria-pressed="false">Functional Appliances</button>
+            <button class="filter-chip" type="button" data-filter="Retainers" aria-pressed="false">Retainers</button>
+          </div>
+          <p class="case-count" aria-live="polite"></p>
+        </div>
+        <div class="case-grid" id="case-grid" aria-live="polite"></div>
+        <p class="disclaimer">Results vary from patient to patient. Images are shared with patient consent.</p>
+      </section>
+
+      <section class="closing-cta wrap reveal" aria-labelledby="cta-title">
+        <div>
+          <p class="eyebrow">Let's connect</p>
+          <h2 id="cta-title">Want a consultation or clinic tie-up?</h2>
+        </div>
+        <div class="cta-actions">
+          <a class="button" href="index.html#connect">Get in touch ↗</a>
+          <a class="button button-outline" href="https://www.instagram.com/drpranalbhusari" target="_blank" rel="noopener noreferrer" aria-label="Visit Dr. Pranal Bhusari on Instagram">Instagram ↗</a>
+          <a class="button button-outline" href="https://www.linkedin.com/in/dr-pranal-bhusari-2b450b380/" target="_blank" rel="noopener noreferrer" aria-label="Visit Dr. Pranal Bhusari on LinkedIn">LinkedIn ↗</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer wrap">
+      <span>© <span id="year"></span> Dr. Pranal Bhusari · MDS Orthodontics</span>
+      <span>English · Hindi · Marathi</span>
+      <div class="footer-socials">
+        <a href="https://www.instagram.com/drpranalbhusari" target="_blank" rel="noopener noreferrer" aria-label="Visit Instagram profile @drpranalbhusari">Instagram · @drpranalbhusari</a>
+        <a href="https://www.linkedin.com/in/dr-pranal-bhusari-2b450b380/" target="_blank" rel="noopener noreferrer" aria-label="Visit LinkedIn profile Dr. Pranal Bhusari">LinkedIn · Dr. Pranal Bhusari</a>
+      </div>
+    </footer>
+  </div>
+
+  <dialog class="case-modal" aria-label="Clinical case detail">
+    <div class="modal-panel">
+      <button class="modal-close" type="button" aria-label="Close case details">×</button>
+      <div class="modal-content"></div>
+      <div class="modal-navigation">
+        <button class="modal-prev" type="button" aria-label="View previous case">← Previous</button>
+        <button class="modal-next" type="button" aria-label="View next case">Next →</button>
+      </div>
+    </div>
+  </dialog>
+
+  <script src="cases.js"></script>
+  <script src="clinical-work.js"></script>
+</body>
+</html>

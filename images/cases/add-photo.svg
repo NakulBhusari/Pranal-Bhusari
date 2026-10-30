@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900">
+  <rect width="1200" height="900" fill="#E2F0F0"/>
+  <path d="M0 710 310 440l180 150 190-220 520 410v120H0Z" fill="#5F8190" opacity=".16"/>
+  <rect x="430" y="338" width="340" height="224" rx="28" fill="#36565F" opacity=".1"/>
+  <path d="M540 450h120m-60-60v120" stroke="#36565F" stroke-width="14" stroke-linecap="round" opacity=".48"/>
+  <text x="600" y="635" fill="#36565F" font-family="Inter,Arial,sans-serif" font-size="46" font-weight="600" text-anchor="middle">Add photo</text>
+</svg>

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Case Study Gallery</title>
+    <style>
+      :root {
+        --bg: #0f172a;
+        --panel: #111827;
+        --panel-alt: #1f2937;
+        --text: #e5e7eb;
+        --muted: #9ca3af;
+        --accent: #38bdf8;
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background: linear-gradient(135deg, #020817, var(--bg));
+        color: var(--text);
+      }
+
+      .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 48px 20px 64px;
+      }
+
+      h1 {
+        margin: 0 0 12px;
+        font-size: clamp(2rem, 4vw, 3rem);
+      }
+
+      .subtitle {
+        color: var(--muted);
+        margin: 0 0 32px;
+        font-size: 1.05rem;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 24px;
+      }
+
+      .card {
+        background: rgba(17, 24, 39, 0.9);
+        border: 1px solid rgba(148, 163, 184, 0.2);
+        border-radius: 18px;
+        overflow: hidden;
+        box-shadow: 0 20px 45px rgba(15, 23, 42, 0.35);
+      }
+
+      .card img {
+        display: block;
+        width: 100%;
+        height: 340px;
+        object-fit: cover;
+      }
+
+      .ba-slider {
+        --ba-position: 50%;
+        position: relative;
+        height: 340px;
+        overflow: hidden;
+        background: #030712;
+        isolation: isolate;
+      }
+
+      .ba-slider > img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .ba-before {
+        z-index: 1;
+        clip-path: inset(0 calc(100% - var(--ba-position)) 0 0);
+      }
+
+      .ba-divider {
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        bottom: 0;
+        left: var(--ba-position);
+        width: 2px;
+        background: white;
+        pointer-events: none;
+        transform: translateX(-50%);
+      }
+
+      .ba-handle {
+        position: absolute;
+        top: 50%;
+        left: var(--ba-position);
+        width: 42px;
+        height: 42px;
+        border: 2px solid white;
+        border-radius: 50%;
+        background: var(--panel);
+        color: white;
+        font-size: 1.2rem;
+        line-height: 1;
+        pointer-events: none;
+        transform: translate(-50%, -50%);
+      }
+
+      .ba-pill {
+        position: absolute;
+        z-index: 3;
+        top: 14px;
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: rgba(15, 23, 42, 0.8);
+        color: white;
+        font-size: 0.8rem;
+        font-weight: bold;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        pointer-events: none;
+      }
+
+      .ba-pill-before { left: 14px; }
+      .ba-pill-after { right: 14px; }
+
+      .ba-range {
+        position: absolute;
+        z-index: 4;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        opacity: 0;
+        cursor: ew-resize;
+      }
+
+      .ba-side-toggle {
+        position: absolute;
+        z-index: 5;
+        right: 14px;
+        bottom: 14px;
+        padding: 8px 11px;
+        border: 1px solid rgba(255, 255, 255, 0.7);
+        border-radius: 8px;
+        background: rgba(15, 23, 42, 0.85);
+        color: white;
+        font: inherit;
+        font-size: 0.8rem;
+        cursor: pointer;
+      }
+
+      .ba-slider.is-side-by-side {
+        display: flex;
+      }
+
+      .ba-slider.is-side-by-side > img {
+        position: relative;
+        inset: auto;
+        width: 50%;
+        height: 100%;
+        clip-path: none;
+      }
+
+      .ba-slider.is-side-by-side .ba-divider,
+      .ba-slider.is-side-by-side .ba-handle,
+      .ba-slider.is-side-by-side .ba-range {
+        display: none;
+      }
+
+      .ba-slider.is-side-by-side .ba-pill-after {
+        right: auto;
+        left: calc(50% + 14px);
+      }
+
+      .card-body {
+        padding: 18px 18px 20px;
+      }
+
+      .tag {
+        display: inline-block;
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: rgba(56, 189, 248, 0.15);
+        color: var(--accent);
+        font-size: 0.8rem;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        font-weight: bold;
+      }
+
+      h2 {
+        margin: 14px 0 8px;
+        font-size: 1.35rem;
+      }
+
+      p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Case Study Gallery</h1>
+      <p class="subtitle">Before-and-after improvements</p>
+
+      <div class="grid">
+        <article class="card">
+          <div class="ba-slider" data-stacked="cases/case-01-stacked.svg" data-trim="0,0,0,0" aria-label="Before and after comparison">
+            <img class="ba-before" alt="Before" />
+            <img class="ba-after" alt="After" />
+            <span class="ba-pill ba-pill-before">Before</span>
+            <span class="ba-pill ba-pill-after">After</span>
+            <span class="ba-divider" aria-hidden="true"></span>
+            <span class="ba-handle" aria-hidden="true">↔</span>
+            <input class="ba-range" type="range" min="0" max="100" value="50" aria-label="Adjust before and after comparison" />
+            <button class="ba-side-toggle" type="button" aria-pressed="false">Side-by-side</button>
+          </div>
+          <div class="card-body">
+            <span class="tag">Before</span>
+            <h2>Upper-front midline gap closure</h2>
+            <p>Original state captured before the enhancement work began.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="cases/case-01-after.jpg" alt="After renovation" />
+          <div class="card-body">
+            <span class="tag">After</span>
+            <h2>Completed result</h2>
+            <p>Final outcome showing the improved presentation and finish.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+    <script src="split-stacked.js"></script>
+  </body>
+</html>
